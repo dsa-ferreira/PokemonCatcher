@@ -31,33 +31,15 @@ public class SolverImpl implements Solver{
 		this.map = new boolean[0][0];
 	}
 
-	// discovers map configuration
-	private void discoverMap(String[] moves) {
-		MapConfig config = new MapConfig();
-		for (String move : moves) {
-			switch (move.toUpperCase()) {
-			case "N":
-				config.moveNorth();
-				break;
-			case "S":
-				config.moveSouth();
-				break;
-			case "O":
-				config.moveWest();
-				break;
-			case "E":
-				config.moveEast();
-				break;
-			}
-		}
-		setupMap(config);
-	}
-
 	// setup bi-dimensional array and starting positions
-	private void setupMap(MapConfig config) {
+	private void setupMap(String[] moves) {
+		MapConfig config = new MapConfigImpl();
+		config.discoverMap(moves);
+		
 		int x = config.getHorizontalSize();
 		int y = config.getVerticalSize();
 		this.map = new boolean[x][y];
+		
 		this.currentX = config.getStartingX();
 		this.currentY = config.getStartingY();
 		this.map[currentX][currentY] = true;
@@ -66,7 +48,7 @@ public class SolverImpl implements Solver{
 	//main solver method that runs the path and does corresponding moves
 	public int solve(String path) {
 		String[] moves = path.split("");
-		discoverMap(moves);
+		setupMap(moves);
 		for (String move : moves) {
 			switch (move.toUpperCase()) {
 			case "N":
