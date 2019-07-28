@@ -4,12 +4,14 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import solver.HashSolverImpl;
+import solver.Solver;
+import solver.SolverImpl;
 
 public class Tests {
 	
-	HashSolverImpl solver = new HashSolverImpl();
-//	Solver solver = new Solver();
+//	HashSolverImpl solver = new HashSolverImpl();
+	Solver solver = new SolverImpl();
+	
 	@Test
 	public void testOne() {
 		String path = "E";
