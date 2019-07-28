@@ -99,4 +99,14 @@ public class Tests {
 		int output = solver.solve(path);
 		assertEquals(result, output);
 	}
+
+	@Test
+	public void testNine() {
+		String path = "";
+		int result = 1;
+		solver.reset();
+		
+		int output = solver.solve(path);
+		assertEquals(result, output);
+	}
 }

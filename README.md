@@ -11,6 +11,10 @@ RUN
 To run the program use the following command in the project folder:
 	"java Main"
 
+TESTING
+
+In the tests folder, there is a single file called Tests that has some JUnit tests I used to check the consistency of the algorithm.
+
 ALTERNATIVE SOLUTIONS
 
 I have implemented two different solutions. The Main class is running the first and simpler one.
